@@ -10,16 +10,60 @@
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="./assets/favicon/site.webmanifest">
     <title>TT Toe</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
     <div class="container">
-
+        <div class="choose">
+            <h2>choose</h2>
+            <div class="choices">
+                <div class="choice choice-tic">
+                    <img src="./assets/tic.png" alt="Tic">
+                </div>
+                <div class="choice choice-tac">
+                    <img src="./assets/tac.png" alt="Tac">
+                </div>
+            </div>
+        </div>
+        <div class="game">
+            <div class="scoreboard">
+                <div class="wins">
+                    wins <span>0</span>
+                </div>
+                <div class="ties">
+                    ties <span>0</span>
+                </div>
+                <div class="losts">
+                    losts <span>0</span>
+                </div>
+            </div>
+            <div class="board">
+                <div class="box box-1">
+                    <img src="./assets/tac.png" class="tic-tac" alt="tac">
+                </div>
+                <div class="box box-2"></div>
+                <div class="box box-3"></div>
+                <div class="box box-4"></div>
+                <div class="box box-5"></div>
+                <div class="box box-6">
+                    <img src="./assets/tic.png" class="tic-tac" alt="tic">
+                </div>
+                <div class="box box-7"></div>
+                <div class="box box-8"></div>
+                <div class="box box-9"></div>
+            </div>
+            <button class="reset">reset</button>
+        </div>
     </div>
     <footer>
-        <div class="center">get the code</div>
+        <div class="center">
+            <a href="https://github.com/kushagra-aa/tttoe" target="_blank">
+                get the code
+            </a>
+        </div>
         <div class="right">by
-            <a href="">kushagra-aa</a>
+            <a href="https://kushagra-aa.github.io/tttoe/" target="_blank">kushagra-aa</a>
         </div>
     </footer>
 </body>
