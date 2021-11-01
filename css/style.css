@@ -1,0 +1,30 @@
+:root {
+  --main: #00e1d4;
+  --tic: #ffe84a;
+  --tac: #f1baf5;
+  --white: #f2f2f2;
+  --black: #231f20;
+  --accent: #cfdfff;
+}
+
+::-moz-selection {
+  color: var(--tic);
+  background: var(--tac);
+}
+/* Code for Firefox */
+::selection {
+  color: var(--tic);
+  background: var(--tac);
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  color: var(--black);
+}
+
+footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+}
