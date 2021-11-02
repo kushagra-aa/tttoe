@@ -15,9 +15,27 @@
 
 <body>
     <div class="container">
-        <div class="choose">
+        <div class="choose choose-player" onclick="showTic()">
             <h2>choose</h2>
-            <div class="choices">
+            <div class="choices-con">
+                <div class="player player-2">
+                    <h3>2 players</h3>
+                    <div class="player-img-con">
+                        <img src="./assets/tac.png" alt="1">
+                        <img src="./assets/tac.png" alt="1">
+                    </div>
+                </div>
+                <div class="player player-1">
+                    <h3>1 player</h3>
+                    <div class="player-img-con">
+                        <img src="./assets/tic.png" alt="2">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="choose choose-tictac" onclick="showGame()">
+            <h2>choose</h2>
+            <div class="choices-con">
                 <div class="choice choice-tic">
                     <img src="./assets/tic.png" alt="Tic">
                 </div>
@@ -26,7 +44,7 @@
                 </div>
             </div>
         </div>
-        <div class="game">
+        <div class="game" onclick="showPlayer()">
             <div class="scoreboard">
                 <div class="wins">
                     wins <span>0</span>
@@ -66,6 +84,7 @@
             <a href="https://kushagra-aa.github.io/tttoe/" target="_blank">kushagra-aa</a>
         </div>
     </footer>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
