@@ -39,7 +39,7 @@ body {
   height: 95vh;
 }
 
-/* choose csss */
+/* choose css */
 .choose {
   display: none;
   flex-direction: column;
@@ -47,6 +47,7 @@ body {
   align-items: center;
   gap: 1em;
 }
+
 .choose h2 {
   font-size: 60px;
   display: flex;
@@ -56,7 +57,7 @@ body {
   text-transform: capitalize;
 }
 
-.choices {
+.choices-con {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -68,6 +69,45 @@ body {
   border-radius: 20px;
 }
 
+/* Select palyers css */
+.choose-player {
+  display: flex;
+}
+
+.player {
+  height: 510px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.player h3 {
+  font-size: 40px;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  text-align: center;
+}
+.player-1 img {
+  height: 230px;
+  width: 230px;
+}
+.player-2 img {
+  height: 180px;
+  width: 180px;
+}
+
+.player:hover {
+  transform: translate3d(0px, -10px, 0px);
+}
+
+/* choose tic-tac css */
+
+.choose-tictac {
+  /* display: flex; */
+}
+
 .choice {
   cursor: pointer;
   transition: all 0.5s ease-in-out;
@@ -77,7 +117,9 @@ body {
 }
 /* game csss */
 .game {
-  display: flex;
+  display: none;
+  /* temp */
+  /* display: flex; */
   flex-direction: column;
   justify-content: start;
   align-items: center;
@@ -178,4 +220,83 @@ footer > div {
 }
 .right a {
   text-transform: none;
+}
+
+@media only screen and (max-width: 655px) {
+  .container {
+    width: 100vw;
+    height: 85vh;
+    overflow: hidden;
+  }
+  /* choices css mob*/
+  .choose h2 {
+    font-size: 50px;
+  }
+  .choices-con {
+    background: url("../assets/bg/choices-mob.png");
+    height: 531px;
+    width: 295px;
+    border-radius: 20px;
+    flex-direction: column;
+  }
+  /* choose player css mob*/
+  .player {
+    height: 260px;
+  }
+  .player h3 {
+    font-size: 30px;
+  }
+  .player img {
+    height: 90px;
+    width: 90px;
+  }
+  /* choose tic-tac css mob*/
+  .choice img {
+    width: 150px;
+    height: 150px;
+  }
+  /* game css mob */
+  .game {
+    height: 80vh;
+  }
+  /* scoreboard css mob */
+  .scoreboard {
+    width: 313px;
+    height: 140px;
+  }
+  .scoreboard > div {
+    font-size: 25px;
+  }
+  .scoreboard > div span {
+    font-size: 65px;
+  }
+  /* gameboard css mob */
+  .board {
+    width: 312px;
+    height: 312px;
+    background-size: contain;
+  }
+  .box {
+    height: 100px;
+    width: 100px;
+  }
+  .tic-tac {
+    width: 70px;
+    height: 70px;
+  }
+  /* reset btn css mob */
+  .reset {
+    position: relative;
+    bottom: 0px;
+    right: 0px;
+  }
+  /* footer css mob */
+  footer {
+    height: 5rem;
+    flex-direction: column;
+    gap: 1em;
+  }
+  .right {
+    position: initial;
+  }
 }
