@@ -15,17 +15,17 @@
 
 <body>
     <div class="container">
-        <div class="choose choose-player" onclick="showTic()">
+        <div class="choose choose-player">
             <h2>choose</h2>
             <div class="choices-con">
-                <div class="player player-2">
+                <div class="player player-2" onclick="players2()">
                     <h3>2 players</h3>
                     <div class="player-img-con">
                         <img src="./assets/tac.png" alt="1">
                         <img src="./assets/tac.png" alt="1">
                     </div>
                 </div>
-                <div class="player player-1">
+                <div class="player player-1" onclick="players1()">
                     <h3>1 player</h3>
                     <div class="player-img-con">
                         <img src="./assets/tic.png" alt="2">
@@ -33,18 +33,18 @@
                 </div>
             </div>
         </div>
-        <div class="choose choose-tictac" onclick="showGame()">
+        <div class="choose choose-tictac">
             <h2>choose</h2>
             <div class="choices-con">
-                <div class="choice choice-tic">
+                <div class="choice choice-tic" onclick="choseTic()">
                     <img src="./assets/tic.png" alt="Tic">
                 </div>
-                <div class="choice choice-tac">
+                <div class="choice choice-tac" onclick="choseTac()">
                     <img src="./assets/tac.png" alt="Tac">
                 </div>
             </div>
         </div>
-        <div class="game" onclick="showPlayer()">
+        <div class="game">
             <div class="scoreboard">
                 <div class="wins">
                     wins <span>0</span>
@@ -57,21 +57,24 @@
                 </div>
             </div>
             <div class="board">
-                <div class="box box-1">
-                    <img src="./assets/tac.png" class="tic-tac" alt="tac">
-                </div>
-                <div class="box box-2"></div>
-                <div class="box box-3"></div>
-                <div class="box box-4"></div>
-                <div class="box box-5"></div>
-                <div class="box box-6">
-                    <img src="./assets/tic.png" class="tic-tac" alt="tic">
-                </div>
-                <div class="box box-7"></div>
-                <div class="box box-8"></div>
-                <div class="box box-9"></div>
+                <div class="box" id="box-1"></div>
+                <div class="box" id="box-2"></div>
+                <div class="box" id="box-3"></div>
+                <div class="box" id="box-4"></div>
+                <div class="box" id="box-5"></div>
+                <div class="box" id="box-6"></div>
+                <div class="box" id="box-7"></div>
+                <div class="box" id="box-8"></div>
+                <div class="box" id="box-9"></div>
             </div>
-            <button class="reset">reset</button>
+            <button class="reset" onclick="reset()">reset</button>
+        </div>
+        <div class="won">
+            <div class="win-img-con">
+            </div>
+            <h3>
+                won!
+            </h3>
         </div>
     </div>
     <footer>
