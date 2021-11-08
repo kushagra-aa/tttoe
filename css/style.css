@@ -1,14 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-:root {
-  --main: #cfdfff;
-  --tic: #ffe84a;
-  --tac: #f1baf5;
-  --white: #f2f2f2;
-  --black: #231f20;
-  --accent: #00e1d4;
-  --accent-20: rgba(0, 225, 212, 0.24);
-}
-
+@import url("./colors.css");
+@import url("./animations.css");
 ::-moz-selection {
   color: var(--tic);
   background: var(--tac);
@@ -41,7 +33,6 @@ body {
 
 /* choose css */
 .choose {
-  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -73,7 +64,6 @@ body {
 .choose-player {
   display: flex;
 }
-
 .player {
   height: 510px;
   display: flex;
@@ -103,11 +93,9 @@ body {
 }
 
 /* choose tic-tac css */
-
 .choose-tictac {
-  /* display: flex; */
+  display: none;
 }
-
 .choice {
   cursor: pointer;
   transition: all 0.5s ease-in-out;
@@ -118,8 +106,6 @@ body {
 /* game csss */
 .game {
   display: none;
-  /* temp */
-  /* display: flex; */
   flex-direction: column;
   justify-content: start;
   align-items: center;
@@ -173,11 +159,34 @@ body {
   justify-content: center;
 }
 
-.tic-tac {
+.box-img {
   width: 90px;
   height: 90px;
 }
 
+/* won css */
+.won {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 652px;
+  height: 516px;
+  background: rgba(0, 225, 212, 0.5);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+    inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  animation: float 3s ease-in-out infinite;
+}
+.won img {
+  height: 300px;
+  width: 300px;
+}
+.won h3 {
+  margin-top: 0.2em;
+  font-size: 52px;
+  text-transform: uppercase;
+}
 /* reset btn css */
 .reset {
   position: absolute;
@@ -283,6 +292,18 @@ footer > div {
   .tic-tac {
     width: 70px;
     height: 70px;
+  }
+  /* won css mob */
+  .won {
+    width: 290px;
+    height: 387px;
+  }
+  .won img {
+    width: 190px;
+    height: 190px;
+  }
+  .won h3 {
+    font-size: 40px;
   }
   /* reset btn css mob */
   .reset {
