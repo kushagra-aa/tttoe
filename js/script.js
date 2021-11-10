@@ -1,8 +1,9 @@
-
-// vars
+// VARIABLES:
 // player vars
 let playerChoice = ""
-let NoOfPlayers = 1
+let noOfPlayers = 1
+// Game Variables
+let isMultiplayer = false
 // containers
 let playerCon = document.querySelector('.choose-player')
 let ticCon = document.querySelector('.choose-tictac')
@@ -39,12 +40,15 @@ Array.from(boxes).forEach(box => {
             clickedBox = document.getElementById(boxId)
             // box operations
             boxOperations()
+            checkPlayers()
             setScores()
         }
     })
 })
 
-// functions
+// FUNTIONS:
+// DISPLAY FUNCTIONS
+// Show Funtions
 const showTic = () => {
     ticCon.style.display = "flex"
 }
@@ -57,6 +61,7 @@ const showPlayer = () => {
 const showWon = () => {
     wonsCon.style.display = "flex"
 }
+// Hide Funtions
 const hideTic = () => {
     ticCon.style.display = "none"
 }
@@ -71,24 +76,39 @@ const hideGame = () => {
 }
 // Select no of players
 const players1 = () => {
-    NoOfPlayers = 1
+    isMultiplayer = false
+    noOfPlayers = 1
     hidePlayer()
     showTic()
 }
 const players2 = () => {
-    NoOfPlayers = 2
+    noOfPlayers = 2
+    playerChoice = 'x'
+    isMultiplayer = true
     hidePlayer()
     showGame()
 }
+// Choose Tic-Tac
 const choseTic = () => {
     playerChoice = "x"
     hideTic()
     showGame()
 }
 const choseTac = () => {
-    playerChoice = "y"
+    playerChoice = "o"
     hideTic()
     showGame()
+    userIsTac()
+}
+// Decicive Funtion
+const checkPlayers = () => {
+    if (!isMultiplayer) {
+        nextTurn()
+    }
+}
+// if user is tac then comp makes the first move
+const userIsTac = () => {
+    checkPlayers();
 }
 // operations to be performed on box
 const boxOperations = () => {
@@ -189,7 +209,7 @@ const gameOver = () => {
     })
     hideWon()
     showGame()
-    turn = "x"
+    turn = playerChoice
     isGameOver = false
 }
 // reset button
@@ -198,4 +218,36 @@ function reset() {
     ties = 0
     losts = 0
     setScores()
+}
+
+// Computer Funtions
+// to select next random available spot to move
+function nextTurn() {
+    var available = []
+    var moveMade = false
+    for (var i = 0; i < 9; i++) {
+        var freebox = document.getElementById(boxes[i].id)
+        if (freebox.childElementCount == 0)
+            available.push(i)
+    }
+    while (!moveMade) {
+        let move = Math.floor(Math.random() * 10)
+        available.forEach((j) => {
+            if (move == j) {
+                makeMove(move)
+                moveMade = true
+            }
+        })
+        if (available.length == 1) {
+            makeMove(available[0])
+            moveMade = true
+        }
+    }
+}
+// Make Move Funtion
+function makeMove(compMove) {
+    clickedBox = boxes[compMove]
+    boxId = boxes[compMove].id
+    changeTurn()
+    boxOperations();
 }
