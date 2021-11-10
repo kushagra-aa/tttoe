@@ -1,9 +1,9 @@
 // VARIABLES:
 // audios
-const tieAudio = new Audio("../assets/audios/Game_over.wav");
-const drawAudio = new Audio("../assets/audios/draw.mp3");
-const compWinAudio = new Audio("../assets/audios/Comp-win.wav");
-const playerWinAudio = new Audio("../assets/audios/Player-win.mp3");
+const tieAudio = new Audio("./assets/audios/Game_over.wav");
+const drawAudio = new Audio("./assets/audios/draw.mp3");
+const compWinAudio = new Audio("./assets/audios/Comp-win.wav");
+const playerWinAudio = new Audio("./assets/audios/Player-win.mp3");
 // player vars
 let playerChoice = ""
 let noOfPlayers = 1
