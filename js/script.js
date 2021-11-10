@@ -1,8 +1,14 @@
-
-// vars
+// VARIABLES:
+// audios
+const tieAudio = new Audio("../assets/audios/Game_over.wav");
+const drawAudio = new Audio("../assets/audios/draw.mp3");
+const compWinAudio = new Audio("../assets/audios/Comp-win.wav");
+const playerWinAudio = new Audio("../assets/audios/Player-win.mp3");
 // player vars
 let playerChoice = ""
-let NoOfPlayers = 1
+let noOfPlayers = 1
+// Game Variables
+let isMultiplayer = false
 // containers
 let playerCon = document.querySelector('.choose-player')
 let ticCon = document.querySelector('.choose-tictac')
@@ -16,9 +22,9 @@ let boxId = ""
 // box that is clicked
 let clickedBox = ""
 // score vars
-let wins = 0
-let losts = 0
-let ties = 0
+let wins = localStorage.getItem("wins")
+let ties = localStorage.getItem("ties")
+let losts = localStorage.getItem("losts")
 // score board cons
 let winCon = document.querySelector(".wins span")
 let tiesCon = document.querySelector(".ties span")
@@ -26,6 +32,7 @@ let lostsCon = document.querySelector(".losts span")
 // other vars
 let turn = "x"
 let isGameOver = false
+let isWon = false
 // boxes
 let boxes = document.getElementsByClassName('box')
 // add every box from boxes array 
@@ -35,16 +42,20 @@ Array.from(boxes).forEach(box => {
         // if game is not over
         if (!isGameOver) {
             // get clicked box id
+            drawAudio.play()
             boxId = box.id
             clickedBox = document.getElementById(boxId)
             // box operations
             boxOperations()
+            if (!isGameOver) checkPlayers();
             setScores()
         }
     })
 })
 
-// functions
+// FUNTIONS:
+// DISPLAY FUNCTIONS
+// Show Funtions
 const showTic = () => {
     ticCon.style.display = "flex"
 }
@@ -57,6 +68,7 @@ const showPlayer = () => {
 const showWon = () => {
     wonsCon.style.display = "flex"
 }
+// Hide Funtions
 const hideTic = () => {
     ticCon.style.display = "none"
 }
@@ -71,24 +83,39 @@ const hideGame = () => {
 }
 // Select no of players
 const players1 = () => {
-    NoOfPlayers = 1
+    isMultiplayer = false
+    noOfPlayers = 1
     hidePlayer()
     showTic()
 }
 const players2 = () => {
-    NoOfPlayers = 2
+    noOfPlayers = 2
+    playerChoice = 'x'
+    isMultiplayer = true
     hidePlayer()
     showGame()
 }
+// Choose Tic-Tac
 const choseTic = () => {
     playerChoice = "x"
     hideTic()
     showGame()
 }
 const choseTac = () => {
-    playerChoice = "y"
+    playerChoice = "o"
     hideTic()
     showGame()
+    userIsTac()
+}
+// Decicive Funtion
+const checkPlayers = () => {
+    if (!isMultiplayer) {
+        nextTurn()
+    }
+}
+// if user is tac then comp makes the first move
+const userIsTac = () => {
+    checkPlayers();
 }
 // operations to be performed on box
 const boxOperations = () => {
@@ -134,16 +161,21 @@ const checkTied = () => {
 }
 // tied funtion
 const tied = () => {
-    isGameOver = true
-    ties = ties + 1
-    setTimeout(() => {
-        hideGame()
-        showWon()
-    }, 1000);
-    wonsCon.querySelector('h3').innerText = "Game Tied"
-    setTimeout(() => {
-        gameOver()
-    }, 5000);
+    if (!isGameOver) {
+        tieAudio.play()
+        isGameOver = true
+        ties = ties + 1
+        localStorage.setItem("ties", ties)
+        setTimeout(() => {
+            hideGame()
+            showWon()
+        }, 1000);
+        wonsCon.querySelector('h3').innerText = "Game Tied"
+        document.querySelector('.win-img-con').innerHTML = ""
+        setTimeout(() => {
+            gameOver()
+        }, 5000);
+    }
 }
 // check winning
 const checkWin = () => {
@@ -170,17 +202,27 @@ const checkWin = () => {
 //  win funtion 
 const win = () => {
     isGameOver = true
-    if (turn === 'x')
-        wins = wins + 1
-    else losts = losts + 1
+    isWon = true
     setTimeout(() => {
         hideGame()
         showWon()
-    }, 1000);
+    }, 500);
     document.querySelector('.win-img-con').innerHTML = makeChild()
+    wonsCon.querySelector('h3').innerText = "Won!!"
     setTimeout(() => {
         gameOver()
-    }, 5000);
+    }, 2000);
+    if (turn === 'x') {
+        playerWinAudio.play()
+        wins = wins + 1
+        localStorage.setItem("wins", wins)
+    }
+    else {
+        compWinAudio.play()
+        losts = losts + 1
+        localStorage.setItem("losts", losts)
+    }
+
 }
 // game over funtion
 const gameOver = () => {
@@ -189,7 +231,8 @@ const gameOver = () => {
     })
     hideWon()
     showGame()
-    turn = "x"
+    turn = playerChoice
+    isWon = false
     isGameOver = false
 }
 // reset button
@@ -199,3 +242,40 @@ function reset() {
     losts = 0
     setScores()
 }
+
+// Computer Funtions
+// to select next random available spot to move
+function nextTurn() {
+    var available = []
+    var moveMade = false
+    for (var i = 0; i < 9; i++) {
+        var freebox = document.getElementById(boxes[i].id)
+        if (freebox.childElementCount == 0)
+            available.push(i)
+    }
+    while (!moveMade) {
+        let move = Math.floor(Math.random() * 10)
+        available.forEach((j) => {
+            if (move == j) {
+                makeMove(move)
+                moveMade = true
+            }
+        })
+        if (available.length == 1) {
+            makeMove(available[0])
+            moveMade = true
+        }
+    }
+}
+// Make Move Funtion
+function makeMove(compMove) {
+    clickedBox = boxes[compMove]
+    boxId = boxes[compMove].id
+    changeTurn()
+    boxOperations();
+}
+// calling function when page is loaded
+const onload = () => {
+    setScores()
+}
+onload()

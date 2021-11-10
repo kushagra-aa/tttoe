@@ -131,6 +131,25 @@ body {
   font-size: 30px;
   text-transform: uppercase;
 }
+.wins:hover h2,
+.losts:hover h2 {
+  display: none;
+}
+.wins:hover::before,
+.losts:hover::before {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  width: 113.05px;
+}
+.wins:hover::before {
+  content: "X Wins";
+}
+.losts:hover::before {
+  content: "O Wins";
+  width: 131.5px;
+}
 .scoreboard > div span {
   font-size: 75px;
 }
