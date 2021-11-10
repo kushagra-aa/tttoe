@@ -1,4 +1,9 @@
 // VARIABLES:
+// audios
+const tieAudio = new Audio("../assets/audios/Game_over.wav");
+const drawAudio = new Audio("../assets/audios/draw.mp3");
+const compWinAudio = new Audio("../assets/audios/Comp-win.wav");
+const playerWinAudio = new Audio("../assets/audios/Player-win.mp3");
 // player vars
 let playerChoice = ""
 let noOfPlayers = 1
@@ -37,6 +42,7 @@ Array.from(boxes).forEach(box => {
         // if game is not over
         if (!isGameOver) {
             // get clicked box id
+            drawAudio.play()
             boxId = box.id
             clickedBox = document.getElementById(boxId)
             // box operations
@@ -156,6 +162,7 @@ const checkTied = () => {
 // tied funtion
 const tied = () => {
     if (!isGameOver) {
+        tieAudio.play()
         isGameOver = true
         ties = ties + 1
         localStorage.setItem("ties", ties)
@@ -206,10 +213,12 @@ const win = () => {
         gameOver()
     }, 2000);
     if (turn === 'x') {
+        playerWinAudio.play()
         wins = wins + 1
         localStorage.setItem("wins", wins)
     }
     else {
+        compWinAudio.play()
         losts = losts + 1
         localStorage.setItem("losts", losts)
     }
