@@ -17,9 +17,9 @@ let boxId = ""
 // box that is clicked
 let clickedBox = ""
 // score vars
-let wins = 0
-let losts = 0
-let ties = 0
+let wins = localStorage.getItem("wins")
+let ties = localStorage.getItem("ties")
+let losts = localStorage.getItem("losts")
 // score board cons
 let winCon = document.querySelector(".wins span")
 let tiesCon = document.querySelector(".ties span")
@@ -27,6 +27,7 @@ let lostsCon = document.querySelector(".losts span")
 // other vars
 let turn = "x"
 let isGameOver = false
+let isWon = false
 // boxes
 let boxes = document.getElementsByClassName('box')
 // add every box from boxes array 
@@ -40,7 +41,7 @@ Array.from(boxes).forEach(box => {
             clickedBox = document.getElementById(boxId)
             // box operations
             boxOperations()
-            checkPlayers()
+            if (!isGameOver) checkPlayers();
             setScores()
         }
     })
@@ -154,16 +155,20 @@ const checkTied = () => {
 }
 // tied funtion
 const tied = () => {
-    isGameOver = true
-    ties = ties + 1
-    setTimeout(() => {
-        hideGame()
-        showWon()
-    }, 1000);
-    wonsCon.querySelector('h3').innerText = "Game Tied"
-    setTimeout(() => {
-        gameOver()
-    }, 5000);
+    if (!isGameOver) {
+        isGameOver = true
+        ties = ties + 1
+        localStorage.setItem("ties", ties)
+        setTimeout(() => {
+            hideGame()
+            showWon()
+        }, 1000);
+        wonsCon.querySelector('h3').innerText = "Game Tied"
+        document.querySelector('.win-img-con').innerHTML = ""
+        setTimeout(() => {
+            gameOver()
+        }, 5000);
+    }
 }
 // check winning
 const checkWin = () => {
@@ -190,17 +195,25 @@ const checkWin = () => {
 //  win funtion 
 const win = () => {
     isGameOver = true
-    if (turn === 'x')
-        wins = wins + 1
-    else losts = losts + 1
+    isWon = true
     setTimeout(() => {
         hideGame()
         showWon()
-    }, 1000);
+    }, 500);
     document.querySelector('.win-img-con').innerHTML = makeChild()
+    wonsCon.querySelector('h3').innerText = "Won!!"
     setTimeout(() => {
         gameOver()
-    }, 5000);
+    }, 2000);
+    if (turn === 'x') {
+        wins = wins + 1
+        localStorage.setItem("wins", wins)
+    }
+    else {
+        losts = losts + 1
+        localStorage.setItem("losts", losts)
+    }
+
 }
 // game over funtion
 const gameOver = () => {
@@ -210,6 +223,7 @@ const gameOver = () => {
     hideWon()
     showGame()
     turn = playerChoice
+    isWon = false
     isGameOver = false
 }
 // reset button
@@ -251,3 +265,8 @@ function makeMove(compMove) {
     changeTurn()
     boxOperations();
 }
+// calling function when page is loaded
+const onload = () => {
+    setScores()
+}
+onload()
