@@ -21,10 +21,15 @@ const O = '<img src="./assets/tac.png" class="box-img" alt="tac">'
 let boxId = ""
 // box that is clicked
 let clickedBox = ""
-// score vars
+// score vars:
+// local storage vars
 let wins = localStorage.getItem("wins")
 let ties = localStorage.getItem("ties")
 let losts = localStorage.getItem("losts")
+// local vars for scores
+let localWins = parseInt(wins)
+let localTies = parseInt(ties)
+let localLosts = parseInt(losts)
 // score board cons
 let winCon = document.querySelector(".wins span")
 let tiesCon = document.querySelector(".ties span")
@@ -142,9 +147,9 @@ const changeTurn = () => {
 }
 // set scores funtion
 const setScores = () => {
-    winCon.innerHTML = wins
-    lostsCon.innerHTML = losts
-    tiesCon.innerHTML = ties
+    winCon.innerHTML = localWins
+    tiesCon.innerHTML = localTies
+    lostsCon.innerHTML = localLosts
 }
 // check ties
 const checkTied = () => {
@@ -164,8 +169,7 @@ const tied = () => {
     if (!isGameOver) {
         tieAudio.play()
         isGameOver = true
-        ties = ties + 1
-        localStorage.setItem("ties", ties)
+        addScore(0)
         setTimeout(() => {
             hideGame()
             showWon()
@@ -214,13 +218,11 @@ const win = () => {
     }, 2000);
     if (turn === 'x') {
         playerWinAudio.play()
-        wins = wins + 1
-        localStorage.setItem("wins", wins)
+        addScore(1)
     }
     else {
         compWinAudio.play()
-        losts = losts + 1
-        localStorage.setItem("losts", losts)
+        addScore(2)
     }
 
 }
@@ -274,8 +276,30 @@ function makeMove(compMove) {
     changeTurn()
     boxOperations();
 }
+// add score funtion
+const addScore = (which) => {
+    // if win
+    if (which == 1) {
+        localWins = localWins + 1
+        localStorage.setItem("wins", String(localWins))
+    }
+    // if lost
+    else if (which == 2) {
+        localLosts = localLosts + 1
+        localStorage.setItem("losts", String(localLosts))
+    }
+    // if ties
+    else {
+        localTies = localTies + 1
+        localStorage.setItem("ties", String(localTies))
+    }
+}
 // calling function when page is loaded
 const onload = () => {
+    // to make localscores=0 for initial load
+    if (wins == null) localWins = 0;
+    if (losts == null) localLosts = 0;
+    if (ties == null) localTies = 0;
     setScores()
 }
 onload()
