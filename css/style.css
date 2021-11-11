@@ -12,8 +12,8 @@
 }
 
 * {
-  padding: 0px;
-  margin: 0px;
+  padding: 0rem;
+  margin: 0rem;
   color: var(--black);
   font-family: "Poppins", sans-serif;
 }
@@ -40,7 +40,7 @@ body {
 }
 
 .choose h2 {
-  font-size: 60px;
+  font-size: 3.75rem;
   display: flex;
   align-items: center;
   text-align: center;
@@ -53,11 +53,11 @@ body {
   justify-content: space-around;
   align-items: center;
   background: url("../assets/bg/choices.png");
-  width: 1100px;
-  height: 516px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
-    inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
+  width: 68.75rem;
+  height: 32.25rem;
+  box-shadow: 0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25),
+    inset 0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+  border-radius: 1.25rem;
 }
 
 /* Select palyers css */
@@ -65,7 +65,7 @@ body {
   display: flex;
 }
 .player {
-  height: 510px;
+  height: 31.875rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,22 +74,22 @@ body {
   transition: all 0.5s ease-in-out;
 }
 .player h3 {
-  font-size: 40px;
+  font-size: 2.5rem;
   text-transform: uppercase;
   letter-spacing: 0.3em;
   text-align: center;
 }
 .player-1 img {
-  height: 230px;
-  width: 230px;
+  height: 14.375rem;
+  width: 14.375rem;
 }
 .player-2 img {
-  height: 180px;
-  width: 180px;
+  height: 11.25rem;
+  width: 11.25rem;
 }
 
 .player:hover {
-  transform: translate3d(0px, -10px, 0px);
+  transform: translate3d(0rem, -0.625rem, 0rem);
 }
 
 /* choose tic-tac css */
@@ -101,7 +101,7 @@ body {
   transition: all 0.5s ease-in-out;
 }
 .choice:hover {
-  transform: translate3d(0px, -10px, 0px);
+  transform: translate3d(0rem, -0.625rem, 0rem);
 }
 /* game csss */
 .game {
@@ -118,9 +118,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  border-bottom: 3px solid var(--white);
-  width: 753px;
-  height: 140px;
+  border-bottom: 0.188rem solid var(--white);
+  width: 47.063rem;
+  height: 8.75rem;
   margin-top: 3em;
 }
 .scoreboard > div {
@@ -128,7 +128,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 30px;
+  font-size: 1.875rem;
   text-transform: uppercase;
 }
 .wins:hover h2,
@@ -140,18 +140,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70px;
-  width: 113.05px;
+  height: 4.375rem;
+  width: 7.066rem;
 }
 .wins:hover::before {
   content: "X Wins";
 }
 .losts:hover::before {
   content: "O Wins";
-  width: 131.5px;
+  width: 8.219rem;
 }
 .scoreboard > div span {
-  font-size: 75px;
+  font-size: 4.688rem;
 }
 
 /* gameboard css */
@@ -159,11 +159,11 @@ body {
   background: url("../assets/bg/borad.png");
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
-    inset 0px 4px 4px rgba(0, 0, 0, 0.103);
-  border-radius: 10px;
-  width: 450px;
-  height: 450px;
+  box-shadow: 0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25),
+    inset 0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.103);
+  border-radius: 0.625rem;
+  width: 28.125rem;
+  height: 28.125rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   cursor: grab;
@@ -171,16 +171,16 @@ body {
 .box {
   position: relative;
   overflow: hidden;
-  width: 150px;
-  height: 150px;
+  width: 9.375rem;
+  height: 9.375rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .box-img {
-  width: 90px;
-  height: 90px;
+  width: 5.625rem;
+  height: 5.625rem;
 }
 
 /* won css */
@@ -189,49 +189,49 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 652px;
-  height: 516px;
+  width: 40.75rem;
+  height: 32.25rem;
   background: rgba(0, 225, 212, 0.5);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
-    inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  box-shadow: 0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25),
+    inset 0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+  border-radius: 0.625rem;
   animation: float 3s ease-in-out infinite;
 }
 .won img {
-  height: 300px;
-  width: 300px;
+  height: 18.75rem;
+  width: 18.75rem;
 }
 .won h3 {
   margin-top: 0.2em;
-  font-size: 52px;
+  font-size: 3.25rem;
   text-transform: uppercase;
 }
 /* reset btn css */
 .reset {
   position: absolute;
-  width: 100px;
-  height: 60px;
-  right: 40px;
-  bottom: 70px;
+  width: 6.25rem;
+  height: 3.75rem;
+  right: 2.5rem;
+  bottom: 4.375rem;
   background: none;
   color: var(--black);
-  border: 3px solid var(--white);
-  border-radius: 10px;
-  font-size: 25px;
+  border: 0.188rem solid var(--white);
+  border-radius: 0.625rem;
+  font-size: 1.563rem;
   text-transform: capitalize;
   transition: all 0.5s ease-in-out;
   cursor: pointer;
 }
 .reset:hover {
   background: var(--white);
-  box-shadow: 0px 0px 20px 4px var(--white);
+  box-shadow: 0rem 0rem 1.25rem 0.25rem var(--white);
 }
 
 /* footer css */
 footer {
   position: relative;
   width: 100vw;
-  height: 35px;
+  height: 2.188rem;
   left: 0;
   bottom: 0;
   display: flex;
@@ -243,7 +243,7 @@ footer > div {
   text-transform: capitalize;
 }
 .center a {
-  margin-right: 10px;
+  margin-right: 0.625rem;
   text-decoration: none;
 }
 .right a {
@@ -258,30 +258,30 @@ footer > div {
   }
   /* choices css mob*/
   .choose h2 {
-    font-size: 50px;
+    font-size: 3.125rem;
   }
   .choices-con {
     background: url("../assets/bg/choices-mob.png");
-    height: 531px;
-    width: 295px;
-    border-radius: 20px;
+    height: 33.188rem;
+    width: 18.438rem;
+    border-radius: 1.25rem;
     flex-direction: column;
   }
   /* choose player css mob*/
   .player {
-    height: 260px;
+    height: 16.25rem;
   }
   .player h3 {
-    font-size: 30px;
+    font-size: 1.875rem;
   }
   .player img {
-    height: 90px;
-    width: 90px;
+    height: 5.625rem;
+    width: 5.625rem;
   }
   /* choose tic-tac css mob*/
   .choice img {
-    width: 150px;
-    height: 150px;
+    width: 9.375rem;
+    height: 9.375rem;
   }
   /* game css mob */
   .game {
@@ -289,46 +289,46 @@ footer > div {
   }
   /* scoreboard css mob */
   .scoreboard {
-    width: 313px;
-    height: 140px;
+    width: 19.563rem;
+    height: 8.75rem;
   }
   .scoreboard > div {
-    font-size: 25px;
+    font-size: 1.563rem;
   }
   .scoreboard > div span {
-    font-size: 65px;
+    font-size: 4.063rem;
   }
   /* gameboard css mob */
   .board {
-    width: 312px;
-    height: 312px;
+    width: 19.5rem;
+    height: 19.5rem;
     background-size: contain;
   }
   .box {
-    height: 100px;
-    width: 100px;
+    height: 6.25rem;
+    width: 6.25rem;
   }
   .tic-tac {
-    width: 70px;
-    height: 70px;
+    width: 4.375rem;
+    height: 4.375rem;
   }
   /* won css mob */
   .won {
-    width: 290px;
-    height: 387px;
+    width: 18.125rem;
+    height: 24.188rem;
   }
   .won img {
-    width: 190px;
-    height: 190px;
+    width: 11.875rem;
+    height: 11.875rem;
   }
   .won h3 {
-    font-size: 40px;
+    font-size: 2.5rem;
   }
   /* reset btn css mob */
   .reset {
     position: relative;
-    bottom: 0px;
-    right: 0px;
+    bottom: 0rem;
+    right: 0rem;
   }
   /* footer css mob */
   footer {
