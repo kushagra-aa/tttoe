@@ -18,14 +18,14 @@
         <div class="choose choose-player">
             <h2>choose</h2>
             <div class="choices-con">
-                <div class="player player-2" onclick="players2()">
+                <div class="player player-2">
                     <h3>2 players</h3>
                     <div class="player-img-con">
                         <img src="./assets/tac.png" alt="1">
                         <img src="./assets/tac.png" alt="1">
                     </div>
                 </div>
-                <div class="player player-1" onclick="players1()">
+                <div class="player player-1">
                     <h3>1 player</h3>
                     <div class="player-img-con">
                         <img src="./assets/tic.png" alt="2">
@@ -36,10 +36,10 @@
         <div class="choose choose-tictac">
             <h2>choose</h2>
             <div class="choices-con">
-                <div class="choice choice-tic" onclick="choseTic()">
+                <div class="choice choice-tic">
                     <img src="./assets/tic.png" alt="Tic">
                 </div>
-                <div class="choice choice-tac" onclick="choseTac()">
+                <div class="choice choice-tac">
                     <img src="./assets/tac.png" alt="Tac">
                 </div>
             </div>
@@ -74,9 +74,9 @@
                 <div class="box" id="box-9"></div>
             </div>
             <div class="btns-con">
-                <button class="btn" onclick="reset()">reset</button>
-                <button class="btn btn-mode" onclick="changeMode()">change mode</button>
-                <button class="btn btn-xo" onclick="changeXO()">X/O</button>
+                <button class="btn btn-reset">reset</button>
+                <button class="btn btn-mode">change mode</button>
+                <button class="btn btn-xo">X/O</button>
             </div>
         </div>
         <div class="won">
@@ -96,7 +96,7 @@
             <a href="https://kushagra-aa.github.io/tttoe/" target="_blank">kushagra-aa</a>
         </div>
     </footer>
-    <script src="./js/script.js"></script>
+    <script type="module" src="./js/script.js"></script>
 </body>
 
 </html>
