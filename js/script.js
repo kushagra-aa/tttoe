@@ -237,13 +237,6 @@ const gameOver = () => {
     isWon = false
     isGameOver = false
 }
-// reset button
-function reset() {
-    wins = 0
-    ties = 0
-    losts = 0
-    setScores()
-}
 
 // Computer Funtions
 // to select next random available spot to move
@@ -279,7 +272,12 @@ function makeMove(compMove) {
 // add score funtion
 const addScore = (which) => {
     // if win
-    if (which == 1) {
+    if (which == -1) {
+        localStorage.setItem("wins", String(localWins))
+        localStorage.setItem("ties", String(localTies))
+        localStorage.setItem("losts", String(localLosts))
+    }
+    else if (which == 1) {
         localWins = localWins + 1
         localStorage.setItem("wins", String(localWins))
     }
@@ -303,3 +301,12 @@ const onload = () => {
     setScores()
 }
 onload()
+
+// reset button
+function reset() {
+    localWins = 0
+    localTies = 0
+    localLosts = 0
+    addScore(-1);
+    setScores()
+}
