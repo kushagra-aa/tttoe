@@ -244,10 +244,10 @@ const gameOver = () => {
     })
     views.hideWon(wonsCon)
     views.showGame(gameCon)
-    turn = playerChoice
     isWon = false
     isGameOver = false
     turn = "x"
+    if (!isMultiplayer && playerChoice === "o") checkPlayers();
 }
 
 // Computer Funtions
@@ -328,8 +328,8 @@ function changeMode() {
     views.hideGame(gameCon)
 }
 function changeXO() {
+    playerChoice = 'x'
     gameOver()
     views.showTic(ticCon)
     views.hideGame(gameCon)
-    wonsCon
 }
