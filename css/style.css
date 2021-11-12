@@ -206,13 +206,20 @@ body {
   font-size: 3.25rem;
   text-transform: uppercase;
 }
-/* reset btn css */
-.reset {
+/*btn css */
+.btns-con {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   position: absolute;
-  width: 6.25rem;
-  height: 3.75rem;
   right: 2.5rem;
   bottom: 4.375rem;
+  gap: 1em;
+}
+.btn {
+  width: 9rem;
+  height: 5rem;
   background: none;
   color: var(--black);
   border: 0.188rem solid var(--white);
@@ -222,7 +229,7 @@ body {
   transition: all 0.5s ease-in-out;
   cursor: pointer;
 }
-.reset:hover {
+.btn:hover {
   background: var(--white);
   box-shadow: 0rem 0rem 1.25rem 0.25rem var(--white);
 }
@@ -325,10 +332,16 @@ footer > div {
     font-size: 2.5rem;
   }
   /* reset btn css mob */
-  .reset {
+  .btns-con {
     position: relative;
+    flex-direction: row;
     bottom: 0rem;
     right: 0rem;
+    gap: 0.5em;
+  }
+  .btn {
+    width: 7.5rem;
+    font-size: 1.2rem;
   }
   /* footer css mob */
   footer {
