@@ -1,13 +1,13 @@
 # TT Toe
 
-<img src="./assets/Logo.png" alt="logo" width="100"/>
+<img src="./assets/logo.png" alt="logo" width="100"/>
 
 A Tic Tac Toe Game, which uses AI as your opponents
 Made using vanilla JavaScript
 
 Built with 🤍 For You!
 
-<a href="https://kushagra-aa.github.io/tttoe/">![image](https://user-images.githubusercontent.com/68841296/139662292-41a1858d-89f7-4942-b98c-b3a954a69150.png)
+<a href="https://kushagra-aa.github.io/tttoe/" target="_blank">![image](https://user-images.githubusercontent.com/68841296/141434410-384e7308-6aa3-43b2-836a-d28f348ab4df.png)
 </a>
 
 ## 📃 Instructions
@@ -25,6 +25,7 @@ Built with 🤍 For You!
 - A tons of fun
 - No login required
 - Different game modes
+- In-Game Audios
 - A Web Browser Based Game
 - Not At All Resource Heavy
 - Your Scores are saved!
@@ -53,6 +54,7 @@ Built with 🤍 For You!
 
 - Local Storage
 - JS Modules
+- Audios
 - Css FlexBox
 - Css Grid
 - Document Object Model
@@ -74,18 +76,21 @@ Built with 🤍 For You!
 
 ## Screenshots
 
-### Before Starting the game
+### Game Mode Selection
 
-![image](https://user-images.githubusercontent.com/68841296/139662503-095d1a5a-62e1-49db-a104-fb5c4252c65b.png)
+![image](https://user-images.githubusercontent.com/68841296/141434551-9d5bf556-ee07-482e-9b6f-cf543201d6f1.png)
+
+### Choose X-O
+
+![image](https://user-images.githubusercontent.com/68841296/141434619-193b82de-1fe1-457c-83a1-5a58a770318a.png)
+
+### Playing Screen
+![image](https://user-images.githubusercontent.com/68841296/141434666-944113c1-a9e5-428f-9cad-f9aaa5b86cc9.png)
 
 ### Result Screen
-
-![image](https://user-images.githubusercontent.com/68841296/139662514-80b8141e-5e0e-401c-89b9-5c6b2989cf5c.png)
-
-### Smartphone Mode
-
-![image](https://user-images.githubusercontent.com/68841296/139662666-4b0e7bab-5798-434e-8df0-96df799261fb.png)
-
-#### Smartphone Results
-
-![image](https://user-images.githubusercontent.com/68841296/139662745-9b87051a-cb26-4458-84fb-d69915693fcc.png)
+#### Game Tied
+![image](https://user-images.githubusercontent.com/68841296/141434707-a981d34e-68d2-4109-a964-f213969d8c3d.png)
+#### O Wins
+![image](https://user-images.githubusercontent.com/68841296/141434905-f3c44146-1045-4a09-86ce-23ebf4871d23.png)
+#### X Wins
+![image](https://user-images.githubusercontent.com/68841296/141434964-546264a8-482f-435b-aa45-c2905782fe1a.png)
