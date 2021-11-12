@@ -1,3 +1,5 @@
+// imports
+import * as views from "./views.js";
 // VARIABLES:
 // audios
 const tieAudio = new Audio("./assets/audios/Game_over.wav");
@@ -17,6 +19,15 @@ let wonsCon = document.querySelector('.won')
 // img elements
 const X = '<img src="./assets/tic.png" class="box-img" alt="tic">'
 const O = '<img src="./assets/tac.png" class="box-img" alt="tac">'
+// clickable elements
+const player2Btn = document.querySelector('.player-2')
+const player1Btn = document.querySelector('.player-1')
+const choseTacBtn = document.querySelector('.choice-tac')
+const choseTicBtn = document.querySelector('.choice-tic')
+// button elements
+const resetBtn = document.querySelector('.btn-reset')
+const modeBtn = document.querySelector('.btn-mode')
+const xoBtn = document.querySelector('.btn-xo')
 // box id
 let boxId = ""
 // box that is clicked
@@ -58,60 +69,58 @@ Array.from(boxes).forEach(box => {
     })
 })
 
+// other operations:
+// listening click on buttons
+player1Btn.addEventListener('click', () => {
+    players1()
+})
+player2Btn.addEventListener('click', () => {
+    players2()
+})
+choseTicBtn.addEventListener('click', () => {
+    choseTic()
+})
+choseTacBtn.addEventListener('click', () => {
+    choseTac()
+})
+resetBtn.addEventListener('click', () => {
+    reset()
+})
+modeBtn.addEventListener('click', () => {
+    changeMode()
+})
+xoBtn.addEventListener('click', () => {
+    changeXO()
+})
+
+
 // FUNTIONS:
-// DISPLAY FUNCTIONS
-// Show Funtions
-const showTic = () => {
-    ticCon.style.display = "flex"
-}
-const showGame = () => {
-    gameCon.style.display = "flex"
-}
-const showPlayer = () => {
-    playerCon.style.display = "flex"
-}
-const showWon = () => {
-    wonsCon.style.display = "flex"
-}
-// Hide Funtions
-const hideTic = () => {
-    ticCon.style.display = "none"
-}
-const hidePlayer = () => {
-    playerCon.style.display = "none"
-}
-const hideWon = () => {
-    wonsCon.style.display = "none"
-}
-const hideGame = () => {
-    gameCon.style.display = "none"
-}
 // Select no of players
-const players1 = () => {
+function players1() {
     isMultiplayer = false
     noOfPlayers = 1
-    hidePlayer()
-    showTic()
+    views.hidePlayer(playerCon)
+    views.showTic(ticCon)
     document.querySelector(".btn-xo").style.display = "initial"
 }
-const players2 = () => {
+function players2() {
     noOfPlayers = 2
     playerChoice = 'x'
     isMultiplayer = true
     document.querySelector(".btn-xo").style.display = "none"
-    hidePlayer()
-    showGame()
+    views.hidePlayer(playerCon)
+    views.showGame(gameCon)
 }
 // Choose Tic-Tac
-const choseTic = () => {
+function choseTic() {
     playerChoice = "x"
-    hideTic()
-    showGame()
+    views.hideTic(ticCon)
+    views.showGame(gameCon)
 }
-const choseTac = () => {
+function choseTac() {
     playerChoice = "o"
-    hideTic()
-    showGame()
+    views.hideTic(ticCon)
+    views.showGame(gameCon)
     userIsTac()
 }
 // Decicive Funtion
@@ -173,8 +182,8 @@ const tied = () => {
         isGameOver = true
         addScore(0)
         setTimeout(() => {
-            hideGame()
-            showWon()
+            views.hideGame(gameCon)
+            views.showWon(wonsCon)
         }, 1000);
         wonsCon.querySelector('h3').innerText = "Game Tied"
         document.querySelector('.win-img-con').innerHTML = ""
@@ -210,8 +219,8 @@ const win = () => {
     isGameOver = true
     isWon = true
     setTimeout(() => {
-        hideGame()
-        showWon()
+        views.hideGame(gameCon)
+        views.showWon(wonsCon)
     }, 500);
     document.querySelector('.win-img-con').innerHTML = makeChild()
     wonsCon.querySelector('h3').innerText = "Won!!"
@@ -233,8 +242,8 @@ const gameOver = () => {
     Array.from(boxes).forEach(box => {
         box.innerHTML = ""
     })
-    hideWon()
-    showGame()
+    views.hideWon(wonsCon)
+    views.showGame(gameCon)
     turn = playerChoice
     isWon = false
     isGameOver = false
@@ -315,11 +324,12 @@ function reset() {
 }
 function changeMode() {
     gameOver()
-    showPlayer()
-    hideGame()
+    views.showPlayer(playerCon)
+    views.hideGame(gameCon)
 }
 function changeXO() {
     gameOver()
-    showTic()
-    hideGame()
+    views.showTic(ticCon)
+    views.hideGame(gameCon)
+    wonsCon
 }
