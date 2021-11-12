@@ -92,11 +92,13 @@ const players1 = () => {
     noOfPlayers = 1
     hidePlayer()
     showTic()
+    document.querySelector(".btn-xo").style.display = "initial"
 }
 const players2 = () => {
     noOfPlayers = 2
     playerChoice = 'x'
     isMultiplayer = true
+    document.querySelector(".btn-xo").style.display = "none"
     hidePlayer()
     showGame()
 }
@@ -236,13 +238,7 @@ const gameOver = () => {
     turn = playerChoice
     isWon = false
     isGameOver = false
-}
-// reset button
-function reset() {
-    wins = 0
-    ties = 0
-    losts = 0
-    setScores()
+    turn = "x"
 }
 
 // Computer Funtions
@@ -279,7 +275,12 @@ function makeMove(compMove) {
 // add score funtion
 const addScore = (which) => {
     // if win
-    if (which == 1) {
+    if (which == -1) {
+        localStorage.setItem("wins", String(localWins))
+        localStorage.setItem("ties", String(localTies))
+        localStorage.setItem("losts", String(localLosts))
+    }
+    else if (which == 1) {
         localWins = localWins + 1
         localStorage.setItem("wins", String(localWins))
     }
@@ -303,3 +304,22 @@ const onload = () => {
     setScores()
 }
 onload()
+
+// reset button
+function reset() {
+    localWins = 0
+    localTies = 0
+    localLosts = 0
+    addScore(-1);
+    setScores()
+}
+function changeMode() {
+    gameOver()
+    showPlayer()
+    hideGame()
+}
+function changeXO() {
+    gameOver()
+    showTic()
+    hideGame()
+}
